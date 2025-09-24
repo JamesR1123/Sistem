@@ -5,9 +5,11 @@ import Config.Conf;
 
 public class manageUser {
     
-    public void ManageUser(){
-        
-        
+    public void manageUser(){
+    
+    int choice ;    
+    
+    do{    
         System.out.println("==========MANAGE USER==========");
         System.out.println("1.Add User: ");
         System.out.println("2.VIew User: ");
@@ -16,10 +18,10 @@ public class manageUser {
         System.out.println("5.Back: ");
         
         System.out.println("Enter Choice: ");
-        int choice = Main.sc.nextInt();
+        choice = Main.sc.nextInt();
         Main.sc.nextLine();
         
-        
+  
         switch(choice){
             
             case 1:
@@ -36,22 +38,31 @@ public class manageUser {
                 
             case 3:
                 
+                viewUser();
                 updateUser();
                 
                 break;
                 
             case 4:
                 
+                viewUser();
                 deleteUser();
-                break;
-                
-            case 5:
                 
                 break;
-              
-        }
-        
+            
+            case 5: 
+                System.out.println("Going back...");
+                
+            default:
+                System.out.println("Invalid Choice!!! Try Again");
+           }
+        }while(choice !=5);
     }
+    
+    
+       
+        
+    
     public void addUser(){
 
         
@@ -129,6 +140,18 @@ public class manageUser {
     
     }
     
+    public void viewRentersOnly() {
+    Conf db = new Conf();
+    String Renterquery = "SELECT * FROM tbl_Users WHERE U_type = 'Renter'";
+    String[] Renterheaders = {"ID", "Full Name", "Type", "Email", "Phone"};
+    String[] Rentercolumns = {"U_id", "U_name", "U_type", "U_email", "U_phonenumber"};
+
+    db.viewRecords(Renterquery, Renterheaders, Rentercolumns);
 }
+    
+}
+
+   
+
     
 

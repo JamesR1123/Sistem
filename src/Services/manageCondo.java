@@ -7,9 +7,10 @@ import Config.Conf;
 public class manageCondo {
     
     public void manageCondo(){
-        
-        
-        System.out.println("==========MANAGE USER==========");
+    
+    int choice;
+    do{    
+        System.out.println("==========MANAGE CONDO==========");
         System.out.println("1.Add Condo: ");
         System.out.println("2.VIew Condo: ");
         System.out.println("3.Update Condo: ");
@@ -17,11 +18,11 @@ public class manageCondo {
         System.out.println("5.Back: ");
         
         System.out.println("Enter Choice: ");
-        int option = Main.sc.nextInt();
+        choice = Main.sc.nextInt();
         Main.sc.nextLine();
         
         
-        switch(option){
+        switch(choice){
             
             case 1:
                 
@@ -38,21 +39,28 @@ public class manageCondo {
             case 3:
                 
                 updateCondo();
+                viewCondo();
                 
                 break;
                 
             case 4:
                 
                 deleteCondo();
-                break;
-                
-            case 5:
+                viewCondo();
                 
                 break;
+                
+            case 5: 
+                System.out.println("Going back...");
+                
+            default:
+                System.out.println("Invalid Choice!!! Try Again");
               
-        }
-        
+            }
+        }while(choice != 5);
     }
+    
+    
     public void addCondo(){
     
         

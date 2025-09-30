@@ -1,9 +1,9 @@
-package Services;
+package Dashboard;
 
 import Main.Main;
 import Config.Conf;
 
-public class manageUser {
+public class AdminDashboard {
     
     public void manageUser(){
     

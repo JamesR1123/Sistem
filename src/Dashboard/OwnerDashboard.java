@@ -1,10 +1,10 @@
 
-package Services;
+package Dashboard;
 
 import Main.Main;
 import Config.Conf;
 
-public class manageCondo {
+public class OwnerDashboard {
     
     public void manageCondo(){
     
@@ -25,8 +25,12 @@ public class manageCondo {
         switch(choice){
             
             case 1:
-                
+                if (Main.loggedInUserType != null && Main.loggedInUserType.equalsIgnoreCase("Owner")) {
                 addCondo();
+                } else {
+                System.out.println("❌ Access Denied! Only Owners can add condos.");
+                }
+             
                 
                 break;
                 

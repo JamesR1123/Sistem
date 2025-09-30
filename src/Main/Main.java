@@ -2,13 +2,14 @@ package Main;
 
 import Config.Conf;
 import java.util.Scanner;
-import Services.manageUser;
-import Services.manageCondo;
-import Services.manageBooking;
+import Dashboard.AdminDashboard;
+import Dashboard.OwnerDashboard;
+import Dashboard.RenterDashboard;
 
 
 public class Main {
     
+    public static String loggedInUserType = "";
     public static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
@@ -16,14 +17,15 @@ public class Main {
         Conf db = new Conf();
         db.connectDB();
         
-        manageUser mu = new manageUser();
-        manageCondo mc = new manageCondo();
-        manageBooking bk = new manageBooking();
-      
+        AdminDashboard mu = new AdminDashboard();
+        OwnerDashboard mc = new OwnerDashboard();
+        RenterDashboard bk = new RenterDashboard();
+        
 
         int choice;
         
         do {
+            
             System.out.println("\n===== Condo Rental System =====");
             System.out.println("1. Manage User");
             System.out.println("2. Manage Condo Unit");

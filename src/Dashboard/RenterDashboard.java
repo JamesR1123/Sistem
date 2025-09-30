@@ -1,18 +1,18 @@
 
-package Services;
+package Dashboard;
 
 import Main.Main;
 import Config.Conf;
-import Services.manageUser;
-import Services.manageCondo;
+import Dashboard.AdminDashboard;
+import Dashboard.OwnerDashboard;
 
 
-public class manageBooking {
+public class RenterDashboard {
 
     public void manageBooking() {
         
-        manageUser mu = new manageUser();
-        manageCondo mc = new manageCondo();
+        AdminDashboard mu = new AdminDashboard();
+        OwnerDashboard mc = new OwnerDashboard();
         
         int choice;
         do {
@@ -66,7 +66,7 @@ public class manageBooking {
      public void addBooking() {
          
    
-    manageUser mu = new manageUser();
+    AdminDashboard mu = new AdminDashboard();
     System.out.println("\n===== RENTERS =====");
     mu.viewRentersOnly(); 
 
@@ -74,7 +74,7 @@ public class manageBooking {
     int uid = Main.sc.nextInt();
 
 
-    manageCondo mc = new manageCondo();
+    OwnerDashboard mc = new OwnerDashboard();
     System.out.println("\n===== CONDO UNITS =====");
     mc.viewCondo();
 

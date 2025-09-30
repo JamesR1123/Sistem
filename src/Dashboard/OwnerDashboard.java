@@ -25,12 +25,8 @@ public class OwnerDashboard {
         switch(choice){
             
             case 1:
-                if (Main.loggedInUserType != null && Main.loggedInUserType.equalsIgnoreCase("Owner")) {
+                
                 addCondo();
-                } else {
-                System.out.println("❌ Access Denied! Only Owners can add condos.");
-                }
-             
                 
                 break;
                 

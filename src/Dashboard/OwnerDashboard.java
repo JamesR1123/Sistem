@@ -66,10 +66,10 @@ public class OwnerDashboard {
         
         System.out.print("Enter Unit Number: ");
         int un = Main.sc.nextInt();
+        Main.sc.nextLine();
 
         System.out.print("Enter Condo Floor: ");
-        String cf = Main.sc.nextLine();
-        Main.sc.nextLine(); 
+        String cf = Main.sc.nextLine(); 
         
         System.out.print("Enter Condo Type (1.Studio, 2.1BR, 3.2BR): ");
         int choosety = Main.sc.nextInt(); 
@@ -119,8 +119,13 @@ System.out.println("Update Successfully status " + st + "!");
     
     public void updateCondo(){
         
+        System.out.print("Enter Condo ID to update: ");
+        int cid = Main.sc.nextInt();
+        Main.sc.nextLine();
+        
         System.out.print("Enter New Unit Number: ");
         int un = Main.sc.nextInt();
+        Main.sc.nextLine();
 
         System.out.print("Enter New Condo Floor: ");
         String cf = Main.sc.nextLine();
@@ -149,8 +154,8 @@ System.out.println("Update Successfully status " + st + "!");
         : "Maintenance";
         
         Conf db = new Conf();
-        String sqlUpdate = (" UPDATE tbl_Users SET C_unitf = ?, C_floor = ?, C_utype = ?, C_sqm = ?, C_mrate = WHERE U_id = ? ");
-        db.updateRecord(sqlUpdate, cf, ty, cz, cmr, st, un);
+        String sqlUpdate = " UPDATE tbl_Condo SET C_unitn = ?, C_floor = ?, C_utype = ?, C_sqm = ?, C_mrate = ?, C_status = ? WHERE C_id = ?";
+        db.updateRecord(sqlUpdate, un, cf, ty, cz, cmr, st, cid);
         
     }
     

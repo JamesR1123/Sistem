@@ -93,6 +93,7 @@ public class AdminDashboard {
         }else{
             role = "Renter";
         }
+        Main.sc.nextLine();
             
         System.out.print("Enter Email: ");
         String em = Main.sc.nextLine();
@@ -130,11 +131,20 @@ public class AdminDashboard {
         System.out.println("Enter new Name: ");
         String nm = Main.sc.nextLine();
         
-        System.out.println("Enter new Type (1.Owner or 2. Renter");
-        int choosetp = Main.sc.nextInt();
+        System.out.println("Enter new Role (1.Admin / 2.Owner / 3.Renter): ");
+        int chooserole = Main.sc.nextInt();
+        Main.sc.nextLine();
         
-        String newtp = (choosetp == 1) ? "Owner": "Renter";
-        System.out.println("Update Successfully type " +newtp+"!");
+        String newrole = "";
+        if(chooserole == 1){
+            newrole = "Admin";
+        }
+        else if(chooserole == 2){ 
+            newrole = "Owner";
+        }else{
+            newrole = "Renter";
+        }
+        System.out.println("Update Successfully role " +newrole+"!");
         
         System.out.println("Enter new Phonenumber: ");
         String pn = Main.sc.nextLine();
@@ -143,8 +153,8 @@ public class AdminDashboard {
         String em = Main.sc.nextLine();
         
         Conf db = new Conf();
-        String sqlUpdate = (" UPDATE tbl_Users SET U_name = ?, U_type = ?, U_phonenumber = ?, U_email = ? WHERE U_id = ? ");
-        db.updateRecord(sqlUpdate, nm, newtp, pn, em, uid);
+        String sqlUpdate = (" UPDATE tbl_Users SET U_name = ?, U_role = ?, U_phonenumber = ?, U_email = ? WHERE U_id = ? ");
+        db.updateRecord(sqlUpdate, nm, newrole, pn, em, uid);
         
     }
     
@@ -161,9 +171,9 @@ public class AdminDashboard {
     
     public void viewRentersOnly() {
     Conf db = new Conf();
-    String Renterquery = "SELECT * FROM tbl_Users WHERE U_type = 'Renter'";
-    String[] Renterheaders = {"ID", "Full Name", "Type", "Email", "Phone"};
-    String[] Rentercolumns = {"U_id", "U_name", "U_type", "U_email", "U_phonenumber"};
+    String Renterquery = "SELECT * FROM tbl_Users WHERE U_role = 'Renter'";
+    String[] Renterheaders = {"ID", "Full Name", "Role", "Email", "Phone"};
+    String[] Rentercolumns = {"U_id", "U_name", "U_role", "U_email", "U_phonenumber"};
 
     db.viewRecords(Renterquery, Renterheaders, Rentercolumns);
 }

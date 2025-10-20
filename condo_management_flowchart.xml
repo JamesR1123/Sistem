@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowchart xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <metadata>
+    <title>Condo Management System Flowchart</title>
+    <description>Complete system flow for Condo Management System with Authentication, User Management, Condo Management, and Booking Management</description>
+    <version>1.0</version>
+    <created>2024</created>
+  </metadata>
+  
+  <definitions>
+    <style id="startEnd">
+      <fill>#4CAF50</fill>
+      <stroke>#2E7D32</stroke>
+      <stroke-width>2</stroke-width>
+    </style>
+    <style id="process">
+      <fill>#2196F3</fill>
+      <stroke>#1565C0</stroke>
+      <stroke-width>2</stroke-width>
+    </style>
+    <style id="decision">
+      <fill>#FF9800</fill>
+      <stroke>#E65100</stroke>
+      <stroke-width>2</stroke-width>
+    </style>
+    <style id="database">
+      <fill>#9C27B0</fill>
+      <stroke>#6A1B9A</stroke>
+      <stroke-width>2</stroke-width>
+    </style>
+    <style id="dashboard">
+      <fill>#607D8B</fill>
+      <stroke>#37474F</stroke>
+      <stroke-width>2</stroke-width>
+    </style>
+  </definitions>
+
+  <nodes>
+    <!-- Start Node -->
+    <node id="start" x="400" y="50" width="120" height="60" style="startEnd">
+      <text>System Start</text>
+    </node>
+
+    <!-- Database Connection -->
+    <node id="dbConnect" x="400" y="150" width="120" height="60" style="database">
+      <text>Connect to Database</text>
+    </node>
+
+    <!-- Main Menu -->
+    <node id="mainMenu" x="400" y="250" width="120" height="60" style="process">
+      <text>Main Menu</text>
+    </node>
+
+    <!-- Main Menu Decision -->
+    <node id="mainChoice" x="400" y="350" width="120" height="80" style="decision">
+      <text>Choose Option</text>
+    </node>
+
+    <!-- Authentication Process -->
+    <node id="authProcess" x="200" y="450" width="120" height="60" style="process">
+      <text>Authentication</text>
+    </node>
+
+    <!-- Login/Register Decision -->
+    <node id="loginRegister" x="200" y="550" width="120" height="80" style="decision">
+      <text>Login or Register?</text>
+    </node>
+
+    <!-- Login Process -->
+    <node id="login" x="100" y="650" width="120" height="60" style="process">
+      <text>Login Process</text>
+    </node>
+
+    <!-- Register Process -->
+    <node id="register" x="300" y="650" width="120" height="60" style="process">
+      <text>Register Process</text>
+    </node>
+
+    <!-- Role Verification -->
+    <node id="roleCheck" x="200" y="750" width="120" height="80" style="decision">
+      <text>Verify User Role</text>
+    </node>
+
+    <!-- Admin Dashboard -->
+    <node id="adminDash" x="50" y="850" width="120" height="60" style="dashboard">
+      <text>Admin Dashboard</text>
+    </node>
+
+    <!-- Owner Dashboard -->
+    <node id="ownerDash" x="200" y="850" width="120" height="60" style="dashboard">
+      <text>Owner Dashboard</text>
+    </node>
+
+    <!-- Renter Dashboard -->
+    <node id="renterDash" x="350" y="850" width="120" height="60" style="dashboard">
+      <text>Renter Dashboard</text>
+    </node>
+
+    <!-- Admin User Management -->
+    <node id="adminUserMgmt" x="50" y="950" width="120" height="60" style="process">
+      <text>User Management</text>
+    </node>
+
+    <!-- Admin User Operations -->
+    <node id="adminUserOps" x="50" y="1050" width="120" height="80" style="decision">
+      <text>User Operations</text>
+    </node>
+
+    <!-- Add User -->
+    <node id="addUser" x="200" y="1150" width="120" height="60" style="process">
+      <text>Add User</text>
+    </node>
+
+    <!-- View User -->
+    <node id="viewUser" x="350" y="1150" width="120" height="60" style="process">
+      <text>View User</text>
+    </node>
+
+    <!-- Update User -->
+    <node id="updateUser" x="500" y="1150" width="120" height="60" style="process">
+      <text>Update User</text>
+    </node>
+
+    <!-- Delete User -->
+    <node id="deleteUser" x="650" y="1150" width="120" height="60" style="process">
+      <text>Delete User</text>
+    </node>
+
+    <!-- Approve User -->
+    <node id="approveUser" x="800" y="1150" width="120" height="60" style="process">
+      <text>Approve User</text>
+    </node>
+
+    <!-- Owner Condo Management -->
+    <node id="ownerCondoMgmt" x="200" y="950" width="120" height="60" style="process">
+      <text>Condo Management</text>
+    </node>
+
+    <!-- Owner Condo Operations -->
+    <node id="ownerCondoOps" x="200" y="1050" width="120" height="80" style="decision">
+      <text>Condo Operations</text>
+    </node>
+
+    <!-- Add Condo -->
+    <node id="addCondo" x="350" y="1150" width="120" height="60" style="process">
+      <text>Add Condo</text>
+    </node>
+
+    <!-- View Condo -->
+    <node id="viewCondo" x="500" y="1150" width="120" height="60" style="process">
+      <text>View Condo</text>
+    </node>
+
+    <!-- Update Condo -->
+    <node id="updateCondo" x="650" y="1150" width="120" height="60" style="process">
+      <text>Update Condo</text>
+    </node>
+
+    <!-- Delete Condo -->
+    <node id="deleteCondo" x="800" y="1150" width="120" height="60" style="process">
+      <text>Delete Condo</text>
+    </node>
+
+    <!-- Renter Booking Management -->
+    <node id="renterBookingMgmt" x="350" y="950" width="120" height="60" style="process">
+      <text>Booking Management</text>
+    </node>
+
+    <!-- Renter Booking Operations -->
+    <node id="renterBookingOps" x="350" y="1050" width="120" height="80" style="decision">
+      <text>Booking Operations</text>
+    </node>
+
+    <!-- Add Booking -->
+    <node id="addBooking" x="500" y="1150" width="120" height="60" style="process">
+      <text>Add Booking</text>
+    </node>
+
+    <!-- View Booking -->
+    <node id="viewBooking" x="650" y="1150" width="120" height="60" style="process">
+      <text>View Booking</text>
+    </node>
+
+    <!-- Update Booking -->
+    <node id="updateBooking" x="800" y="1150" width="120" height="60" style="process">
+      <text>Update Booking</text>
+    </node>
+
+    <!-- Delete Booking -->
+    <node id="deleteBooking" x="950" y="1150" width="120" height="60" style="process">
+      <text>Delete Booking</text>
+    </node>
+
+    <!-- Database Operations -->
+    <node id="dbOperations" x="600" y="1250" width="120" height="60" style="database">
+      <text>Database Operations</text>
+    </node>
+
+    <!-- End Node -->
+    <node id="end" x="400" y="1350" width="120" height="60" style="startEnd">
+      <text>System End</text>
+    </node>
+  </nodes>
+
+  <connections>
+    <!-- Main Flow -->
+    <connection from="start" to="dbConnect">
+      <text>Initialize</text>
+    </connection>
+    
+    <connection from="dbConnect" to="mainMenu">
+      <text>Database Connected</text>
+    </connection>
+    
+    <connection from="mainMenu" to="mainChoice">
+      <text>Display Options</text>
+    </connection>
+
+    <!-- Main Menu Choices -->
+    <connection from="mainChoice" to="authProcess">
+      <text>1. Login</text>
+    </connection>
+    
+    <connection from="mainChoice" to="authProcess">
+      <text>2. Register</text>
+    </connection>
+    
+    <connection from="mainChoice" to="end">
+      <text>3. Exit</text>
+    </connection>
+
+    <!-- Authentication Flow -->
+    <connection from="authProcess" to="loginRegister">
+      <text>Process Auth</text>
+    </connection>
+    
+    <connection from="loginRegister" to="login">
+      <text>Login</text>
+    </connection>
+    
+    <connection from="loginRegister" to="register">
+      <text>Register</text>
+    </connection>
+    
+    <connection from="login" to="roleCheck">
+      <text>Validate Credentials</text>
+    </connection>
+    
+    <connection from="register" to="roleCheck">
+      <text>Create Account</text>
+    </connection>
+
+    <!-- Role-based Routing -->
+    <connection from="roleCheck" to="adminDash">
+      <text>Admin Role</text>
+    </connection>
+    
+    <connection from="roleCheck" to="ownerDash">
+      <text>Owner Role</text>
+    </connection>
+    
+    <connection from="roleCheck" to="renterDash">
+      <text>Renter Role</text>
+    </connection>
+
+    <!-- Admin Dashboard Flow -->
+    <connection from="adminDash" to="adminUserMgmt">
+      <text>Manage Users</text>
+    </connection>
+    
+    <connection from="adminUserMgmt" to="adminUserOps">
+      <text>User Management Menu</text>
+    </connection>
+    
+    <connection from="adminUserOps" to="addUser">
+      <text>1. Add User</text>
+    </connection>
+    
+    <connection from="adminUserOps" to="viewUser">
+      <text>2. View User</text>
+    </connection>
+    
+    <connection from="adminUserOps" to="updateUser">
+      <text>3. Update User</text>
+    </connection>
+    
+    <connection from="adminUserOps" to="deleteUser">
+      <text>4. Delete User</text>
+    </connection>
+    
+    <connection from="adminUserOps" to="approveUser">
+      <text>5. Approve User</text>
+    </connection>
+
+    <!-- Owner Dashboard Flow -->
+    <connection from="ownerDash" to="ownerCondoMgmt">
+      <text>Manage Condos</text>
+    </connection>
+    
+    <connection from="ownerCondoMgmt" to="ownerCondoOps">
+      <text>Condo Management Menu</text>
+    </connection>
+    
+    <connection from="ownerCondoOps" to="addCondo">
+      <text>1. Add Condo</text>
+    </connection>
+    
+    <connection from="ownerCondoOps" to="viewCondo">
+      <text>2. View Condo</text>
+    </connection>
+    
+    <connection from="ownerCondoOps" to="updateCondo">
+      <text>3. Update Condo</text>
+    </connection>
+    
+    <connection from="ownerCondoOps" to="deleteCondo">
+      <text>4. Delete Condo</text>
+    </connection>
+
+    <!-- Renter Dashboard Flow -->
+    <connection from="renterDash" to="renterBookingMgmt">
+      <text>Manage Bookings</text>
+    </connection>
+    
+    <connection from="renterBookingMgmt" to="renterBookingOps">
+      <text>Booking Management Menu</text>
+    </connection>
+    
+    <connection from="renterBookingOps" to="addBooking">
+      <text>1. Add Booking</text>
+    </connection>
+    
+    <connection from="renterBookingOps" to="viewBooking">
+      <text>2. View Booking</text>
+    </connection>
+    
+    <connection from="renterBookingOps" to="updateBooking">
+      <text>3. Update Booking</text>
+    </connection>
+    
+    <connection from="renterBookingOps" to="deleteBooking">
+      <text>4. Delete Booking</text>
+    </connection>
+
+    <!-- Database Operations -->
+    <connection from="addUser" to="dbOperations">
+      <text>INSERT User</text>
+    </connection>
+    
+    <connection from="viewUser" to="dbOperations">
+      <text>SELECT Users</text>
+    </connection>
+    
+    <connection from="updateUser" to="dbOperations">
+      <text>UPDATE User</text>
+    </connection>
+    
+    <connection from="deleteUser" to="dbOperations">
+      <text>DELETE User</text>
+    </connection>
+    
+    <connection from="approveUser" to="dbOperations">
+      <text>UPDATE Status</text>
+    </connection>
+    
+    <connection from="addCondo" to="dbOperations">
+      <text>INSERT Condo</text>
+    </connection>
+    
+    <connection from="viewCondo" to="dbOperations">
+      <text>SELECT Condos</text>
+    </connection>
+    
+    <connection from="updateCondo" to="dbOperations">
+      <text>UPDATE Condo</text>
+    </connection>
+    
+    <connection from="deleteCondo" to="dbOperations">
+      <text>DELETE Condo</text>
+    </connection>
+    
+    <connection from="addBooking" to="dbOperations">
+      <text>INSERT Booking</text>
+    </connection>
+    
+    <connection from="viewBooking" to="dbOperations">
+      <text>SELECT Bookings</text>
+    </connection>
+    
+    <connection from="updateBooking" to="dbOperations">
+      <text>UPDATE Booking</text>
+    </connection>
+    
+    <connection from="deleteBooking" to="dbOperations">
+      <text>DELETE Booking</text>
+    </connection>
+
+    <!-- Back to Main Menu -->
+    <connection from="adminUserOps" to="mainMenu">
+      <text>6. Back</text>
+    </connection>
+    
+    <connection from="ownerCondoOps" to="mainMenu">
+      <text>5. Back</text>
+    </connection>
+    
+    <connection from="renterBookingOps" to="mainMenu">
+      <text>5. Back</text>
+    </connection>
+
+    <!-- End Flow -->
+    <connection from="dbOperations" to="end">
+      <text>Complete</text>
+    </connection>
+  </connections>
+
+  <legend>
+    <item style="startEnd">Start/End Process</item>
+    <item style="process">Process/Operation</item>
+    <item style="decision">Decision Point</item>
+    <item style="database">Database Operation</item>
+    <item style="dashboard">Dashboard/Interface</item>
+  </legend>
+
+  <notes>
+    <note id="note1" x="50" y="50">
+      <text>This flowchart represents the complete flow of the Condo Management System including authentication, user management, condo management, and booking management.</text>
+    </note>
+    
+    <note id="note2" x="50" y="100">
+      <text>The system supports three user roles: Admin (manages users), Owner (manages condos), and Renter (manages bookings).</text>
+    </note>
+    
+    <note id="note3" x="50" y="150">
+      <text>All operations interact with a SQLite database through the Conf class for data persistence.</text>
+    </note>
+  </notes>
+</flowchart>

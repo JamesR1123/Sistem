@@ -10,9 +10,22 @@ import Main.Main;
 public class Authentication {
     public void register(){
         Main.sc.nextLine();
+        Conf db = new Conf();      
         
         System.out.print("Enter Username: ");
         String nm = Main.sc.nextLine();
+        
+        while(true){
+            String qry = "SELECT * FROM tbl_Users WHERE U_name = ?";
+            java.util.List<java.util.Map<String, Object>> result = db.fetchRecords(qry, nm);
+
+            if (result.isEmpty()) {
+                break;
+            } else {
+                System.out.print("Username already exists, Enter onother Username: ");
+                nm = Main.sc.next();
+            }
+        }
         
         System.out.println("Enter your Password: ");
         String ps = Main.sc.nextLine();
@@ -39,7 +52,7 @@ public class Authentication {
         
        
         
-        Conf db = new Conf();        
+       
         String sqlUser = "INSERT INTO tbl_Users (U_name, U_pass, U_role, U_phonenumber, U_email, U_status) VALUES (?, ?, ?, ?, ?, ?)";
         db.addRecord(sqlUser, nm, ps, role, pn, em, "Pending");
 

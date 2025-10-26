@@ -16,7 +16,7 @@ public class AdminDashboard {
         System.out.println("3.Update User ");
         System.out.println("4.Delete User ");
         System.out.println("5.Approved User ");
-        System.out.println("6.Back ");
+        System.out.println("6.Exit ");
         
         System.out.println("Enter Choice: ");
         choice = Main.sc.nextInt();
@@ -72,7 +72,7 @@ public class AdminDashboard {
        
         
     
-    public void addUser(){
+public void addUser(){
 
         
         System.out.print("Enter Username: ");
@@ -109,7 +109,7 @@ public class AdminDashboard {
    
     }
     
-    public void viewUser(){
+public void viewUser(){
         
         Conf db = new Conf();
         String usersQuery = "SELECT * FROM tbl_Users";
@@ -121,7 +121,7 @@ public class AdminDashboard {
     
     }
     
-    public void updateUser(){
+public void updateUser(){
         
         System.out.println("Enter ID to update");
         int uid = Main.sc.nextInt();
@@ -148,7 +148,7 @@ public class AdminDashboard {
         
     }
     
-    public void deleteUser(){
+public void deleteUser(){
     
         System.out.println("Enter ID to delete: ");
         int did = Main.sc.nextInt();
@@ -161,9 +161,9 @@ public class AdminDashboard {
     
     public void viewRentersOnly() {
     Conf db = new Conf();
-    String Renterquery = "SELECT * FROM tbl_Users WHERE U_type = 'Renter'";
+    String Renterquery = "SELECT * FROM tbl_Users WHERE U_role = 'Renter'";
     String[] Renterheaders = {"ID", "Full Name", "Type", "Email", "Phone"};
-    String[] Rentercolumns = {"U_id", "U_name", "U_type", "U_email", "U_phonenumber"};
+    String[] Rentercolumns = {"U_id", "U_name", "U_role", "U_email", "U_phonenumber"};
 
     db.viewRecords(Renterquery, Renterheaders, Rentercolumns);
 }
@@ -176,7 +176,7 @@ public void approveUser(){
     Conf db = new Conf();
     String sqlUpdate = (" UPDATE tbl_Users SET U_status = ? WHERE U_id = ? ");
     db.updateRecord(sqlUpdate, "Approved", id);
-}
+    }
     
 }
 

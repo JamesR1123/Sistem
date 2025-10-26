@@ -18,12 +18,12 @@ public class RenterDashboard {
         do {
             
             
-            System.out.println("\n========== MANAGE BOOKING ==========");
+            System.out.println("============ RENTER DASHBOARD ============");
             System.out.println("1. Add Booking");
             System.out.println("2. View Booking");
             System.out.println("3. Update Booking");
             System.out.println("4. Delete Booking");
-            System.out.println("5. Back");
+            System.out.println("5. Exit");
             System.out.print("Enter Choice: ");
             choice = Main.sc.nextInt();
             Main.sc.nextLine();
@@ -41,11 +41,13 @@ public class RenterDashboard {
                     break;
                 case 3:
                     
+                    viewBooking();    
                     updateBooking();
                     
                     break;
                 case 4:
                     
+                    viewBooking();
                     deleteBooking();
                     
                     break;
@@ -67,7 +69,7 @@ public class RenterDashboard {
          
    
     AdminDashboard mu = new AdminDashboard();
-    System.out.println("\n===== RENTERS =====");
+    System.out.println("\n============ RENTERS ============");
     mu.viewRentersOnly(); 
 
     System.out.print("Enter User ID from the list above: ");

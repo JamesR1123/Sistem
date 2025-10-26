@@ -19,7 +19,7 @@ public class Main {
         
         Authentication au = new Authentication();
         
-        System.out.println("WELCOME TO MY SYSTEM");
+        System.out.println("============WELCOME TO MY SYSTEM============");
         System.out.println("1. Log-in");
         System.out.println("2. Register");
         System.out.println("3. Exit ");
@@ -41,7 +41,7 @@ public class Main {
                 break;
             case 3: 
                   
-                
+                System.out.println("");
                 
                 break;
         

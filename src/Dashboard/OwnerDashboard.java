@@ -10,12 +10,12 @@ public class OwnerDashboard {
     
     int choice;
     do{    
-        System.out.println("==========MANAGE CONDO==========");
+        System.out.println("============ OWNER DASHBOARD ============");
         System.out.println("1.Add Condo: ");
         System.out.println("2.VIew Condo: ");
         System.out.println("3.Update Condo: ");
         System.out.println("4.Delete Condo: ");
-        System.out.println("5.Back: ");
+        System.out.println("5.Exit: ");
         
         System.out.println("Enter Choice: ");
         choice = Main.sc.nextInt();
@@ -74,12 +74,13 @@ public class OwnerDashboard {
         System.out.print("Enter Condo Type (1.Studio, 2.1BR, 3.2BR): ");
         int choosety = Main.sc.nextInt(); 
         Main.sc.nextLine();
+        
         String ty = (choosety == 1) ? "Studio" 
         : (choosety == 2) ? "1BR" 
         : "2BR";
-        System.out.println("Successfully added Condo type " + ty + "!");
-         
         
+        System.out.println("Successfully added Condo type " + ty + "!");
+                 
         System.out.print("Enter Condo Size (sqm): ");
         String cz = Main.sc.nextLine();
         
@@ -94,7 +95,7 @@ public class OwnerDashboard {
              : (choosest == 2) ? "Occupied" 
              : "Maintenance";
 
-System.out.println("Update Successfully status " + st + "!");
+        System.out.println("Update Successfully status " + st + "!");
         
         
         Conf db = new Conf();        
@@ -118,6 +119,10 @@ System.out.println("Update Successfully status " + st + "!");
     }
     
     public void updateCondo(){
+        
+        System.out.println("Enter ID to update");
+        int uid = Main.sc.nextInt();
+        Main.sc.nextLine();
         
         System.out.print("Enter New Unit Number: ");
         int un = Main.sc.nextInt();

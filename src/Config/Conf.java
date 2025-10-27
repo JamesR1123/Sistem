@@ -1,6 +1,7 @@
 package Config;
 
 import java.sql.*;
+import java.sql.Statement;
 
 public class Conf {
     
@@ -179,6 +180,58 @@ public void deleteRecord(String sql, Object... values) {
         return role; 
     }
     
+    public int loginAndGetUserId(String uname, String pass) {
+        int userId = -1;
+        String sql = "SELECT U_id, U_status FROM tbl_users WHERE U_name = ? AND U_pass = ?";
+        
+        try (Connection conn = this.connectDB();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, uname);
+            pstmt.setString(2, pass);
+            
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    String status = rs.getString("U_status");
+                    if ("Approved".equalsIgnoreCase(status)) {
+                        userId = rs.getInt("U_id");
+                        System.out.println("Login successful!");
+                    } else {
+                        System.out.println("Your account is still pending. Please wait for admin approval.");
+                        return -1;
+                    }
+                } else {
+                    System.out.println("Invalid username or password.");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Login error: " + e.getMessage());
+        }
+        
+        return userId; 
+    }
+    
+    public String getUserRole(int userId) {
+        String role = null;
+        String sql = "SELECT U_role FROM tbl_users WHERE U_id = ?";
+        
+        try (Connection conn = this.connectDB();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setInt(1, userId);
+            
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    role = rs.getString("U_role");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting user role: " + e.getMessage());
+        }
+        
+        return role;
+    }
+    
      
      
 public java.util.List<java.util.Map<String, Object>> fetchRecords(String sqlQuery, Object... values) {
@@ -210,5 +263,14 @@ public java.util.List<java.util.Map<String, Object>> fetchRecords(String sqlQuer
     return records;
 }
 
+public void executeSQL(String sql) {
+    try (Connection conn = this.connectDB();
+         Statement stmt = conn.createStatement()) {
+        stmt.execute(sql);
+        System.out.println("SQL executed successfully!");
+    } catch (SQLException e) {
+        System.out.println("SQL Error: " + e.getMessage());
+    }
+}
 
 }

@@ -10,7 +10,7 @@ public class AdminDashboard {
     int choice ;    
     
     do{    
-        System.out.println("==========MANAGE USER==========");
+        System.out.println("========== ADMIN DASHBOARD ==========");
         System.out.println("1.Add User ");
         System.out.println("2.VIew User ");
         System.out.println("3.Update User ");

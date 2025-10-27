@@ -3,6 +3,7 @@ package Dashboard;
 
 import Main.Main;
 import Config.Conf;
+import Authentication.Authentication;
 
 public class OwnerDashboard {
     
@@ -15,7 +16,8 @@ public class OwnerDashboard {
         System.out.println("2.VIew Condo: ");
         System.out.println("3.Update Condo: ");
         System.out.println("4.Delete Condo: ");
-        System.out.println("5.Exit: ");
+        System.out.println("5.View Booking Requests: ");
+        System.out.println("6.Exit: ");
         
         System.out.println("Enter Choice: ");
         choice = Main.sc.nextInt();
@@ -50,14 +52,20 @@ public class OwnerDashboard {
                 
                 break;
                 
-            case 5: 
+            case 5:
+                
+                viewBookingRequests();
+                
+                break;
+                
+            case 6: 
                 System.out.println("Going back...");
                 
             default:
                 System.out.println("Invalid Choice!!! Try Again");
               
             }
-        }while(choice != 5);
+        }while(choice != 6);
     }
     
     
@@ -99,8 +107,8 @@ public class OwnerDashboard {
         
         
         Conf db = new Conf();        
-        String sqlUser = "INSERT INTO tbl_Condo (C_unitn, C_floor, C_utype, C_sqm, C_mrate, C_status) VALUES (?, ?, ?, ?, ?, ?)";
-        db.addRecord(sqlUser, un, cf, ty, cz, cmr, st);
+        String sqlUser = "INSERT INTO tbl_Condo (C_unitn, C_floor, C_utype, C_sqm, C_mrate, C_status, owner_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        db.addRecord(sqlUser, un, cf, ty, cz, cmr, st, Authentication.loggedInUserId);
 
         System.out.println("Condo record inserted successfully!");
    
@@ -109,7 +117,7 @@ public class OwnerDashboard {
     public void viewCondo(){
         
         Conf db = new Conf();
-        String CondoQuery = "SELECT * FROM tbl_Condo";
+        String CondoQuery = "SELECT * FROM tbl_Condo WHERE owner_id = " + Authentication.loggedInUserId;
         String[] CondoHeaders = {"ID", "Condo Unit", "Condo Floor", "Condo Type", "Condo Size", "Condo Monthly Rate", "Condo Status"};
         String[] CondoColumns = {"C_id", "C_unitn", "C_floor", "C_utype", "C_sqm", "C_mrate", "C_status"};
     
@@ -168,6 +176,54 @@ public class OwnerDashboard {
         String sqlDelete = ("DELETE FROM tbl_Condo WHERE C_id = ? ");
         db.deleteRecord(sqlDelete, und);
     
+    }
+    
+    public void viewBookingRequests(){
+        Conf db = new Conf();
+        
+        String bookingQuery = "SELECT b.B_id, u.U_name, c.C_unitn, b.B_start, b.B_end, b.B_total, b.B_stat " +
+                              "FROM tbl_booking b " +
+                              "JOIN tbl_Users u ON b.U_id = u.U_id " +
+                              "JOIN tbl_Condo c ON b.C_id = c.C_id " +
+                              "WHERE c.owner_id = " + Authentication.loggedInUserId + " AND b.B_stat = 'Pending'";
+        
+        String[] headers = {"Booking ID", "Renter Name", "Unit Number", "Start Date", "End Date", "Total", "Status"};
+        String[] columns = {"B_id", "U_name", "C_unitn", "B_start", "B_end", "B_total", "B_stat"};
+        
+        System.out.println("\n===== PENDING BOOKING REQUESTS FOR YOUR CONDOS =====");
+        db.viewRecords(bookingQuery, headers, columns);
+        
+        System.out.print("\nDo you want to approve/reject a booking? (1.Yes / 2.No): ");
+        int choice = Main.sc.nextInt();
+        Main.sc.nextLine();
+        
+        if(choice == 1){
+            System.out.print("Enter Booking ID: ");
+            int bookingId = Main.sc.nextInt();
+            Main.sc.nextLine();
+            
+            System.out.print("Action (1.Approve / 2.Reject): ");
+            int action = Main.sc.nextInt();
+            Main.sc.nextLine();
+            
+            String newStatus = (action == 1) ? "Confirmed" : "Rejected";
+            
+            String sqlUpdate = "UPDATE tbl_booking SET B_stat = ? WHERE B_id = ?";
+            db.updateRecord(sqlUpdate, newStatus, bookingId);
+            
+            // If approved, update condo status to Occupied
+            if(action == 1){
+                String getCondoId = "SELECT C_id FROM tbl_booking WHERE B_id = " + bookingId;
+                java.util.List<java.util.Map<String, Object>> result = db.fetchRecords(getCondoId);
+                if(!result.isEmpty()){
+                    int condoId = (int) result.get(0).get("C_id");
+                    String updateCondo = "UPDATE tbl_Condo SET C_status = ? WHERE C_id = ?";
+                    db.updateRecord(updateCondo, "Occupied", condoId);
+                }
+            }
+            
+            System.out.println("Booking " + newStatus + "!");
+        }
     }
     
 }

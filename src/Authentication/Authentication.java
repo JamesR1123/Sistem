@@ -7,7 +7,10 @@ import Dashboard.OwnerDashboard;
 import Dashboard.RenterDashboard;
 import Main.Main;
 
+1
+ 
 public class Authentication {
+    public static int loggedInUserId = -1;
     public void register(){
         Main.sc.nextLine();
         Conf db = new Conf();      
@@ -71,25 +74,28 @@ public void login(){
         String pass = Main.sc.nextLine();
 
         Conf db = new Conf();
-        String role = db.login(uname, pass);
-
-    if (role != null) {
-        switch (role.toLowerCase()) {
-            case "admin":
-                AdminDashboard adminDash = new AdminDashboard();
-                adminDash.manageUser();
-                break;
-            case "owner":
-                System.out.println("Redirecting to Owner dashboard...");
-                OwnerDashboard ownerDash = new OwnerDashboard();
-                ownerDash.manageCondo();
-                break;
-            case "renter":
-                System.out.println("Redirecting to Renter dashboard...");
-                RenterDashboard renterDash = new RenterDashboard();
-                renterDash.manageBooking(); 
-            default:
-                System.out.println("Unknown role. Access denied.");
+        int userId = db.loginAndGetUserId(uname, pass);
+        
+        if (userId != -1) {
+            loggedInUserId = userId;
+            String role = db.getUserRole(userId);
+            
+            switch (role.toLowerCase()) {
+                case "admin":
+                    AdminDashboard adminDash = new AdminDashboard();
+                    adminDash.manageUser();
+                    break;
+                case "owner":
+                    System.out.println("Redirecting to Owner dashboard...");
+                    OwnerDashboard ownerDash = new OwnerDashboard();
+                    ownerDash.manageCondo();
+                    break;
+                case "renter":
+                    System.out.println("Redirecting to Renter dashboard...");
+                    RenterDashboard renterDash = new RenterDashboard();
+                    renterDash.manageBooking(); 
+                default:
+                    System.out.println("Unknown role. Access denied.");
             }
         }
     

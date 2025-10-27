@@ -5,6 +5,7 @@ import Main.Main;
 import Config.Conf;
 import Dashboard.AdminDashboard;
 import Dashboard.OwnerDashboard;
+import Authentication.Authentication;
 
 
 public class RenterDashboard {
@@ -67,18 +68,12 @@ public class RenterDashboard {
 
      public void addBooking() {
          
-   
-    AdminDashboard mu = new AdminDashboard();
-    System.out.println("\n============ RENTERS ============");
-    mu.viewRentersOnly(); 
-
-    System.out.print("Enter User ID from the list above: ");
-    int uid = Main.sc.nextInt();
-
-
-    OwnerDashboard mc = new OwnerDashboard();
-    System.out.println("\n===== CONDO UNITS =====");
-    mc.viewCondo();
+    Conf db = new Conf();
+    System.out.println("\n===== AVAILABLE CONDO UNITS =====");
+    String availableCondoQuery = "SELECT * FROM tbl_Condo WHERE C_status = 'Available'";
+    String[] CondoHeaders = {"ID", "Condo Unit", "Condo Floor", "Condo Type", "Condo Size", "Condo Monthly Rate"};
+    String[] CondoColumns = {"C_id", "C_unitn", "C_floor", "C_utype", "C_sqm", "C_mrate"};
+    db.viewRecords(availableCondoQuery, CondoHeaders, CondoColumns);
 
     System.out.print("Enter Condo ID from the list above: ");
     int unitid = Main.sc.nextInt();
@@ -94,14 +89,10 @@ public class RenterDashboard {
     double total = Main.sc.nextDouble();
     Main.sc.nextLine();
 
-    System.out.print("Enter Status (Confirmed/Pending): ");
-    String status = Main.sc.nextLine();
-
-    Conf db = new Conf();
     String sqlBooking = "INSERT INTO tbl_booking (U_id, C_id, B_start, B_end, B_total, B_stat) VALUES (?, ?, ?, ?, ?, ?)";
-    db.addRecord(sqlBooking, uid, unitid, startDate, endDate, total, status);
+    db.addRecord(sqlBooking, Authentication.loggedInUserId, unitid, startDate, endDate, total, "Pending");
 
-    System.out.println("Booking record inserted successfully!");
+    System.out.println("Booking request submitted successfully! Waiting for owner approval.");
 }
     
 
@@ -144,8 +135,25 @@ public class RenterDashboard {
         int bid = Main.sc.nextInt();
 
         Conf db = new Conf();
-        String sqlDelete = "DELETE FROM tbl_booking WHERE B_id = ?";
-        db.deleteRecord(sqlDelete, bid);
+        
+        // Get condo ID and status before deleting
+        String getBooking = "SELECT C_id, B_stat FROM tbl_booking WHERE B_id = " + bid;
+        java.util.List<java.util.Map<String, Object>> result = db.fetchRecords(getBooking);
+        
+        if(!result.isEmpty()){
+            int condoId = (int) result.get(0).get("C_id");
+            String status = (String) result.get(0).get("B_stat");
+            
+            // Delete the booking
+            String sqlDelete = "DELETE FROM tbl_booking WHERE B_id = ?";
+            db.deleteRecord(sqlDelete, bid);
+            
+            // If booking was confirmed, set condo back to Available
+            if("Confirmed".equals(status)){
+                String updateCondo = "UPDATE tbl_Condo SET C_status = ? WHERE C_id = ?";
+                db.updateRecord(updateCondo, "Available", condoId);
+            }
+        }
 
         System.out.println("Booking deleted successfully!");
     }

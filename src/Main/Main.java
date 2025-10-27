@@ -17,6 +17,8 @@ public class Main {
         Conf db = new Conf();
         db.connectDB();
         
+        db.executeSQL("ALTER TABLE tbl_Condo ADD COLUMN owner_id INTEGER REFERENCES tbl_Users(U_id)");
+        
         Authentication au = new Authentication();
         
         System.out.println("============WELCOME TO MY SYSTEM============");

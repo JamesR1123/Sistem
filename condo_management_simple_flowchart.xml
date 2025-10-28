@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowchart>
+  <title>Condo Management System Flowchart</title>
+  <description>Complete system flow for Condo Management System</description>
+  
+  <nodes>
+    <node id="start" type="start" label="System Start" />
+    <node id="dbConnect" type="process" label="Connect to Database" />
+    <node id="mainMenu" type="process" label="Display Main Menu" />
+    <node id="mainChoice" type="decision" label="Choose Option (1.Login, 2.Register, 3.Exit)" />
+    
+    <!-- Authentication Flow -->
+    <node id="login" type="process" label="Login Process" />
+    <node id="register" type="process" label="Register Process" />
+    <node id="roleCheck" type="decision" label="Verify User Role" />
+    
+    <!-- Role-based Dashboards -->
+    <node id="adminDash" type="process" label="Admin Dashboard" />
+    <node id="ownerDash" type="process" label="Owner Dashboard" />
+    <node id="renterDash" type="process" label="Renter Dashboard" />
+    
+    <!-- Admin Operations -->
+    <node id="adminUserMgmt" type="process" label="User Management" />
+    <node id="addUser" type="process" label="Add User" />
+    <node id="viewUser" type="process" label="View User" />
+    <node id="updateUser" type="process" label="Update User" />
+    <node id="deleteUser" type="process" label="Delete User" />
+    <node id="approveUser" type="process" label="Approve User" />
+    
+    <!-- Owner Operations -->
+    <node id="ownerCondoMgmt" type="process" label="Condo Management" />
+    <node id="addCondo" type="process" label="Add Condo" />
+    <node id="viewCondo" type="process" label="View Condo" />
+    <node id="updateCondo" type="process" label="Update Condo" />
+    <node id="deleteCondo" type="process" label="Delete Condo" />
+    
+    <!-- Renter Operations -->
+    <node id="renterBookingMgmt" type="process" label="Booking Management" />
+    <node id="addBooking" type="process" label="Add Booking" />
+    <node id="viewBooking" type="process" label="View Booking" />
+    <node id="updateBooking" type="process" label="Update Booking" />
+    <node id="deleteBooking" type="process" label="Delete Booking" />
+    
+    <!-- Database Operations -->
+    <node id="dbOperations" type="database" label="Database Operations" />
+    <node id="end" type="end" label="System End" />
+  </nodes>
+  
+  <connections>
+    <!-- Main Flow -->
+    <connection from="start" to="dbConnect" label="Initialize" />
+    <connection from="dbConnect" to="mainMenu" label="Database Connected" />
+    <connection from="mainMenu" to="mainChoice" label="Display Options" />
+    
+    <!-- Main Menu Choices -->
+    <connection from="mainChoice" to="login" label="1. Login" />
+    <connection from="mainChoice" to="register" label="2. Register" />
+    <connection from="mainChoice" to="end" label="3. Exit" />
+    
+    <!-- Authentication Flow -->
+    <connection from="login" to="roleCheck" label="Validate Credentials" />
+    <connection from="register" to="roleCheck" label="Create Account" />
+    
+    <!-- Role-based Routing -->
+    <connection from="roleCheck" to="adminDash" label="Admin Role" />
+    <connection from="roleCheck" to="ownerDash" label="Owner Role" />
+    <connection from="roleCheck" to="renterDash" label="Renter Role" />
+    
+    <!-- Admin Dashboard Flow -->
+    <connection from="adminDash" to="adminUserMgmt" label="Manage Users" />
+    <connection from="adminUserMgmt" to="addUser" label="1. Add User" />
+    <connection from="adminUserMgmt" to="viewUser" label="2. View User" />
+    <connection from="adminUserMgmt" to="updateUser" label="3. Update User" />
+    <connection from="adminUserMgmt" to="deleteUser" label="4. Delete User" />
+    <connection from="adminUserMgmt" to="approveUser" label="5. Approve User" />
+    
+    <!-- Owner Dashboard Flow -->
+    <connection from="ownerDash" to="ownerCondoMgmt" label="Manage Condos" />
+    <connection from="ownerCondoMgmt" to="addCondo" label="1. Add Condo" />
+    <connection from="ownerCondoMgmt" to="viewCondo" label="2. View Condo" />
+    <connection from="ownerCondoMgmt" to="updateCondo" label="3. Update Condo" />
+    <connection from="ownerCondoMgmt" to="deleteCondo" label="4. Delete Condo" />
+    
+    <!-- Renter Dashboard Flow -->
+    <connection from="renterDash" to="renterBookingMgmt" label="Manage Bookings" />
+    <connection from="renterBookingMgmt" to="addBooking" label="1. Add Booking" />
+    <connection from="renterBookingMgmt" to="viewBooking" label="2. View Booking" />
+    <connection from="renterBookingMgmt" to="updateBooking" label="3. Update Booking" />
+    <connection from="renterBookingMgmt" to="deleteBooking" label="4. Delete Booking" />
+    
+    <!-- Database Operations -->
+    <connection from="addUser" to="dbOperations" label="INSERT User" />
+    <connection from="viewUser" to="dbOperations" label="SELECT Users" />
+    <connection from="updateUser" to="dbOperations" label="UPDATE User" />
+    <connection from="deleteUser" to="dbOperations" label="DELETE User" />
+    <connection from="approveUser" to="dbOperations" label="UPDATE Status" />
+    <connection from="addCondo" to="dbOperations" label="INSERT Condo" />
+    <connection from="viewCondo" to="dbOperations" label="SELECT Condos" />
+    <connection from="updateCondo" to="dbOperations" label="UPDATE Condo" />
+    <connection from="deleteCondo" to="dbOperations" label="DELETE Condo" />
+    <connection from="addBooking" to="dbOperations" label="INSERT Booking" />
+    <connection from="viewBooking" to="dbOperations" label="SELECT Bookings" />
+    <connection from="updateBooking" to="dbOperations" label="UPDATE Booking" />
+    <connection from="deleteBooking" to="dbOperations" label="DELETE Booking" />
+    
+    <!-- Back to Main Menu -->
+    <connection from="adminUserMgmt" to="mainMenu" label="6. Back" />
+    <connection from="ownerCondoMgmt" to="mainMenu" label="5. Back" />
+    <connection from="renterBookingMgmt" to="mainMenu" label="5. Back" />
+    
+    <!-- End Flow -->
+    <connection from="dbOperations" to="end" label="Complete" />
+  </connections>
+  
+  <legend>
+    <item type="start">Start Process</item>
+    <item type="end">End Process</item>
+    <item type="process">Process/Operation</item>
+    <item type="decision">Decision Point</item>
+    <item type="database">Database Operation</item>
+  </legend>
+  
+  <notes>
+    <note>This flowchart represents the complete flow of the Condo Management System including authentication, user management, condo management, and booking management.</note>
+    <note>The system supports three user roles: Admin (manages users), Owner (manages condos), and Renter (manages bookings).</note>
+    <note>All operations interact with a SQLite database through the Conf class for data persistence.</note>
+  </notes>
+</flowchart>

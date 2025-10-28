@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-10-20T00:00:00.000Z" agent="draw.io" version="24.0.0">
+  <diagram name="Condo Management System" id="condo-system-flow">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- START -->
+        <mxCell id="start" value="START CONDO SYSTEM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="40" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Initialize Database -->
+        <mxCell id="init-db" value="Initialize Database Connection&lt;br&gt;(Conf.connectDB())" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1020" y="140" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Main Menu Display -->
+        <mxCell id="main-menu" value="Display Main Menu:&lt;br&gt;1. Log-in&lt;br&gt;2. Register&lt;br&gt;3. Exit" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1000" y="240" width="240" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- User Choice Decision -->
+        <mxCell id="user-choice" value="User Choice?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1040" y="360" width="160" height="160" as="geometry"/>
+        </mxCell>
+        
+        <!-- Exit Path -->
+        <mxCell id="exit-system" value="EXIT SYSTEM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1420" y="410" width="180" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Register Flow -->
+        <mxCell id="register-start" value="REGISTER PROCESS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="410" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-username-reg" value="Input Username" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="510" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-password-reg" value="Input Password" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="600" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="choose-role" value="Choose Role:&lt;br&gt;1. Admin&lt;br&gt;2. Owner&lt;br&gt;3. Renter" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="690" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-email-reg" value="Input Email" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="810" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-phone-reg" value="Input Phone Number" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="900" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="insert-user-db" value="INSERT INTO tbl_Users&lt;br&gt;(name, pass, role, phone, email)&lt;br&gt;Status: Pending" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="990" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="reg-success" value="Display:&lt;br&gt;Registration Successful!" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="680" y="1130" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Login Flow -->
+        <mxCell id="login-start" value="LOGIN PROCESS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="580" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-username-login" value="Input Username" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1020" y="680" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-password-login" value="Input Password" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1020" y="770" width="200" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="query-login" value="SELECT FROM tbl_Users&lt;br&gt;WHERE username AND password&lt;br&gt;GET Role" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1020" y="860" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="auth-check" value="Authentication&lt;br&gt;Successful?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1000" width="160" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="login-failed" value="Display:&lt;br&gt;Login Failed!&lt;br&gt;Invalid Credentials" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1300" y="1030" width="200" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Role Decision -->
+        <mxCell id="role-check" value="Check User Role" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1200" width="160" height="160" as="geometry"/>
+        </mxCell>
+        
+        <!-- ADMIN DASHBOARD -->
+        <mxCell id="admin-dash" value="ADMIN DASHBOARD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="1430" width="240" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-menu" value="Admin Menu:&lt;br&gt;1. Add User&lt;br&gt;2. View User&lt;br&gt;3. Update User&lt;br&gt;4. Delete User&lt;br&gt;5. Approve User&lt;br&gt;6. Back" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="210" y="1540" width="300" height="130" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-choice" value="Admin Choice?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="260" y="1720" width="200" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Add User (Admin) -->
+        <mxCell id="admin-add-user" value="ADD USER&lt;br&gt;- Input Username&lt;br&gt;- Input Password&lt;br&gt;- Select Role&lt;br&gt;- Input Email&lt;br&gt;- Input Phone" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="50" y="1940" width="170" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-insert-db" value="INSERT INTO&lt;br&gt;tbl_Users" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="60" y="2100" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- View User (Admin) -->
+        <mxCell id="admin-view-user" value="VIEW USERS&lt;br&gt;Query: SELECT * FROM tbl_Users&lt;br&gt;Display: ID, Name, Password,&lt;br&gt;Role, Phone, Email, Status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="260" y="1940" width="200" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-query-users" value="SELECT FROM&lt;br&gt;tbl_Users" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="285" y="2080" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Update User (Admin) -->
+        <mxCell id="admin-update-user" value="UPDATE USER&lt;br&gt;1. View Users&lt;br&gt;2. Input User ID&lt;br&gt;3. Input New Name&lt;br&gt;4. Select New Type&lt;br&gt;5. Input New Phone&lt;br&gt;6. Input New Email" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="500" y="1940" width="170" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-update-db" value="UPDATE&lt;br&gt;tbl_Users&lt;br&gt;WHERE U_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="510" y="2120" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Delete User (Admin) -->
+        <mxCell id="admin-delete-user" value="DELETE USER&lt;br&gt;1. View Users&lt;br&gt;2. Input User ID to Delete" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="710" y="1940" width="170" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-delete-db" value="DELETE FROM&lt;br&gt;tbl_Users&lt;br&gt;WHERE U_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="720" y="2060" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Approve User (Admin) -->
+        <mxCell id="admin-approve-user" value="APPROVE USER&lt;br&gt;1. View Users&lt;br&gt;2. Input User ID&lt;br&gt;3. Set Status = 'Approved'" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="920" y="1940" width="180" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-approve-db" value="UPDATE&lt;br&gt;tbl_Users&lt;br&gt;SET U_status='Approved'&lt;br&gt;WHERE U_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="930" y="2080" width="160" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- OWNER DASHBOARD -->
+        <mxCell id="owner-dash" value="OWNER DASHBOARD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1020" y="1430" width="240" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-menu" value="Owner Menu:&lt;br&gt;1. Add Condo&lt;br&gt;2. View Condo&lt;br&gt;3. Update Condo&lt;br&gt;4. Delete Condo&lt;br&gt;5. Back" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1540" width="280" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-choice" value="Owner Choice?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1710" width="200" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Add Condo (Owner) -->
+        <mxCell id="owner-add-condo" value="ADD CONDO&lt;br&gt;- Input Unit Number&lt;br&gt;- Input Floor&lt;br&gt;- Select Type (Studio/1BR/2BR)&lt;br&gt;- Input Size (sqm)&lt;br&gt;- Input Monthly Rate&lt;br&gt;- Select Status&lt;br&gt;  (Available/Occupied/Maintenance)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="810" y="1920" width="210" height="170" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-insert-condo" value="INSERT INTO&lt;br&gt;tbl_Condo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="840" y="2130" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- View Condo (Owner) -->
+        <mxCell id="owner-view-condo" value="VIEW CONDOS&lt;br&gt;Query: SELECT * FROM tbl_Condo&lt;br&gt;Display: ID, Unit, Floor, Type,&lt;br&gt;Size, Monthly Rate, Status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1920" width="210" height="110" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-query-condo" value="SELECT FROM&lt;br&gt;tbl_Condo" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1090" y="2070" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Update Condo (Owner) -->
+        <mxCell id="owner-update-condo" value="UPDATE CONDO&lt;br&gt;1. Input Condo ID&lt;br&gt;2. Input New Unit Number&lt;br&gt;3. Input New Floor&lt;br&gt;4. Select New Type&lt;br&gt;5. Input New Size&lt;br&gt;6. Input New Monthly Rate&lt;br&gt;7. Select New Status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="1310" y="1920" width="190" height="170" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-update-db" value="UPDATE&lt;br&gt;tbl_Condo&lt;br&gt;WHERE C_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1330" y="2130" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Delete Condo (Owner) -->
+        <mxCell id="owner-delete-condo" value="DELETE CONDO&lt;br&gt;1. View Condos&lt;br&gt;2. Input Condo ID to Delete" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="1540" y="1920" width="180" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-delete-db" value="DELETE FROM&lt;br&gt;tbl_Condo&lt;br&gt;WHERE C_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1555" y="2040" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- RENTER DASHBOARD -->
+        <mxCell id="renter-dash" value="RENTER DASHBOARD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1640" y="1430" width="240" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-menu" value="Renter Menu:&lt;br&gt;1. Add Booking&lt;br&gt;2. View Booking&lt;br&gt;3. Update Booking&lt;br&gt;4. Delete Booking&lt;br&gt;5. Back" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1620" y="1540" width="280" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-choice" value="Renter Choice?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1660" y="1710" width="200" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Add Booking (Renter) -->
+        <mxCell id="renter-add-booking" value="ADD BOOKING&lt;br&gt;1. View Renters (from tbl_Users)&lt;br&gt;2. Select User ID&lt;br&gt;3. View Available Condos&lt;br&gt;4. Select Condo ID&lt;br&gt;5. Input Start Date (YYYY-MM-DD)&lt;br&gt;6. Input End Date (YYYY-MM-DD)&lt;br&gt;7. Input Total Amount&lt;br&gt;8. Input Status (Confirmed/Pending)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="1390" y="1900" width="240" height="200" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-insert-booking" value="INSERT INTO&lt;br&gt;tbl_booking" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1435" y="2140" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- View Booking (Renter) -->
+        <mxCell id="renter-view-booking" value="VIEW BOOKINGS&lt;br&gt;Query: SELECT * FROM tbl_booking&lt;br&gt;Display: ID, UserID, UnitID,&lt;br&gt;Start Date, End Date, Total, Status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="1670" y="1900" width="230" height="110" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-query-booking" value="SELECT FROM&lt;br&gt;tbl_booking" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1710" y="2050" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Update Booking (Renter) -->
+        <mxCell id="renter-update-booking" value="UPDATE BOOKING&lt;br&gt;1. Input Booking ID&lt;br&gt;2. Input New Start Date&lt;br&gt;3. Input New End Date&lt;br&gt;4. Input New Total Amount&lt;br&gt;5. Input New Status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="1940" y="1900" width="190" height="140" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-update-db" value="UPDATE&lt;br&gt;tbl_booking&lt;br&gt;WHERE B_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1960" y="2080" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Delete Booking (Renter) -->
+        <mxCell id="renter-delete-booking" value="DELETE BOOKING&lt;br&gt;1. Input Booking ID to Delete" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=left" vertex="1" parent="1">
+          <mxGeometry x="2170" y="1900" width="180" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-delete-db" value="DELETE FROM&lt;br&gt;tbl_booking&lt;br&gt;WHERE B_id" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="2185" y="2010" width="150" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Back loops for dashboards -->
+        <mxCell id="admin-back" value="Back to&lt;br&gt;Admin Menu?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="280" y="2250" width="160" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="owner-back" value="Back to&lt;br&gt;Owner Menu?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1060" y="2250" width="160" height="120" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="renter-back" value="Back to&lt;br&gt;Renter Menu?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="1680" y="2250" width="160" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Database Legend -->
+        <mxCell id="db-legend" value="DATABASE: CondoSystem.db&lt;br&gt;Tables:&lt;br&gt;- tbl_Users (U_id, U_name, U_pass, U_role, U_phonenumber, U_email, U_status)&lt;br&gt;- tbl_Condo (C_id, C_unitn, C_floor, C_utype, C_sqm, C_mrate, C_status)&lt;br&gt;- tbl_booking (B_id, U_id, C_id, B_start, B_end, B_total, B_stat)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="550" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="LEGEND:&lt;br&gt;🟢 Start/End Points | 🟡 Input/Output | 🟠 Decisions | 🔵 Processes | ⚪ Database Operations" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;align=left" vertex="1" parent="1">
+          <mxGeometry x="1650" y="40" width="640" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- END -->
+        <mxCell id="end" value="END SYSTEM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1060" y="2450" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- CONNECTIONS -->
+        <mxCell edge="1" parent="1" source="start" target="init-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="init-db" target="main-menu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="main-menu" target="user-choice">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Choice 3: Exit -->
+        <mxCell edge="1" parent="1" source="user-choice" target="exit-system">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="3. Exit" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#d79b00;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1280" y="440" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="exit-system" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1510" y="440"/>
+              <mxPoint x="1510" y="2480"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Choice 2: Register -->
+        <mxCell edge="1" parent="1" source="user-choice" target="register-start">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="2. Register" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#9673a6;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="910" y="440" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="register-start" target="input-username-reg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="input-username-reg" target="input-password-reg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="input-password-reg" target="choose-role">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="choose-role" target="input-email-reg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="input-email-reg" target="input-phone-reg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="input-phone-reg" target="insert-user-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="insert-user-db" target="reg-success">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="reg-success" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="1250"/>
+              <mxPoint x="950" y="1250"/>
+              <mxPoint x="950" y="2480"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Choice 1: Login -->
+        <mxCell edge="1" parent="1" source="user-choice" target="login-start">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="1. Login" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#9673a6;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1120" y="550" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="login-start" target="input-username-login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="input-username-login" target="input-password-login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="input-password-login" target="query-login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="query-login" target="auth-check">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Auth Failed -->
+        <mxCell edge="1" parent="1" source="auth-check" target="login-failed">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="Failed" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#b85450;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1250" y="1070" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="login-failed" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1550" y="1070"/>
+              <mxPoint x="1550" y="2480"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Auth Success -->
+        <mxCell edge="1" parent="1" source="auth-check" target="role-check">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="Success" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1120" y="1160" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <!-- Role: Admin -->
+        <mxCell edge="1" parent="1" source="role-check" target="admin-dash">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="1280"/>
+              <mxPoint x="360" y="1280"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Admin" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="600" y="1260" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-dash" target="admin-menu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-menu" target="admin-choice">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Admin: Add User -->
+        <mxCell edge="1" parent="1" source="admin-choice" target="admin-add-user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="1795"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="180" y="1795" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-add-user" target="admin-insert-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-insert-db" target="admin-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin: View User -->
+        <mxCell edge="1" parent="1" source="admin-choice" target="admin-view-user">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="360" y="1880" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-view-user" target="admin-query-users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-query-users" target="admin-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin: Update User -->
+        <mxCell edge="1" parent="1" source="admin-choice" target="admin-update-user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="585" y="1795"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="490" y="1795" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-update-user" target="admin-update-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-update-db" target="admin-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="585" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin: Delete User -->
+        <mxCell edge="1" parent="1" source="admin-choice" target="admin-delete-user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="795" y="1795"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="620" y="1795" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-delete-user" target="admin-delete-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-delete-db" target="admin-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="795" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin: Approve User -->
+        <mxCell edge="1" parent="1" source="admin-choice" target="admin-approve-user">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="1795"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="740" y="1795" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-approve-user" target="admin-approve-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-approve-db" target="admin-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="2310"/>
+              <mxPoint x="440" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin Back Loop -->
+        <mxCell edge="1" parent="1" source="admin-back" target="admin-menu">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="2310"/>
+              <mxPoint x="160" y="1605"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="170" y="2000" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="admin-back" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="2420"/>
+              <mxPoint x="1140" y="2420"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Exit" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#b85450;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="720" y="2400" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <!-- Role: Owner -->
+        <mxCell edge="1" parent="1" source="role-check" target="owner-dash">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="Owner" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1120" y="1380" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-dash" target="owner-menu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-menu" target="owner-choice">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Owner: Add Condo -->
+        <mxCell edge="1" parent="1" source="owner-choice" target="owner-add-condo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="915" y="1785"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="980" y="1785" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-add-condo" target="owner-insert-condo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-insert-condo" target="owner-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="915" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Owner: View Condo -->
+        <mxCell edge="1" parent="1" source="owner-choice" target="owner-view-condo">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1140" y="1860" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-view-condo" target="owner-query-condo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-query-condo" target="owner-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Owner: Update Condo -->
+        <mxCell edge="1" parent="1" source="owner-choice" target="owner-update-condo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1405" y="1785"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1280" y="1785" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-update-condo" target="owner-update-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-update-db" target="owner-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1405" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Owner: Delete Condo -->
+        <mxCell edge="1" parent="1" source="owner-choice" target="owner-delete-condo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1630" y="1785"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1420" y="1785" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-delete-condo" target="owner-delete-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-delete-db" target="owner-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1630" y="2310"/>
+              <mxPoint x="1220" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Owner Back Loop -->
+        <mxCell edge="1" parent="1" source="owner-back" target="owner-menu">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="2310"/>
+              <mxPoint x="950" y="1600"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="960" y="2000" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="owner-back" target="end">
+          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="Exit" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#b85450;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1140" y="2400" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <!-- Role: Renter -->
+        <mxCell edge="1" parent="1" source="role-check" target="renter-dash">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1280" y="1280"/>
+              <mxPoint x="1760" y="1280"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Renter" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1520" y="1260" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-dash" target="renter-menu">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-menu" target="renter-choice">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Renter: Add Booking -->
+        <mxCell edge="1" parent="1" source="renter-choice" target="renter-add-booking">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1510" y="1785"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1580" y="1785" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-add-booking" target="renter-insert-booking">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-insert-booking" target="renter-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1510" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Renter: View Booking -->
+        <mxCell edge="1" parent="1" source="renter-choice" target="renter-view-booking">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1785" y="1860"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1760" y="1840" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-view-booking" target="renter-query-booking">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-query-booking" target="renter-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1785" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Renter: Update Booking -->
+        <mxCell edge="1" parent="1" source="renter-choice" target="renter-update-booking">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2035" y="1785"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1900" y="1785" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-update-booking" target="renter-update-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-update-db" target="renter-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2035" y="2310"/>
+              <mxPoint x="1840" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Renter: Delete Booking -->
+        <mxCell edge="1" parent="1" source="renter-choice" target="renter-delete-booking">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2260" y="1785"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#6c8ebf;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="2040" y="1785" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-delete-booking" target="renter-delete-db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-delete-db" target="renter-back">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2260" y="2310"/>
+              <mxPoint x="1840" y="2310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Renter Back Loop -->
+        <mxCell edge="1" parent="1" source="renter-back" target="renter-menu">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1580" y="2310"/>
+              <mxPoint x="1580" y="1600"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#82b366;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1590" y="2000" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+        <mxCell edge="1" parent="1" source="renter-back" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1760" y="2420"/>
+              <mxPoint x="1140" y="2420"/>
+            </Array>
+          </mxGeometry>
+          <mxCell value="Exit" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#b85450;fontStyle=1" vertex="1" connectable="0" parent="1">
+            <mxGeometry x="1450" y="2400" as="geometry"/>
+          </mxCell>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
